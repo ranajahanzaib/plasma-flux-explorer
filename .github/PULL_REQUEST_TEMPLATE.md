@@ -1,10 +1,13 @@
-Fixes #<issue_number_goes_here>
+## Summary
 
-> It's a good idea to open an issue first for discussion.
+Describe the change and the problem it addresses.
 
-**Description**
-A brief summary of what this PR does and why.
+## Validation
 
-- [ ] Tests pass
-- [ ] README updated if needed
-- [ ] No breaking changes (or described below)
+- [ ] Relevant tests and checks pass
+- [ ] Documentation is updated where needed
+- [ ] Scientific data, units, time bases, and provenance are preserved where applicable
+
+## Additional context
+
+Link related issues or include screenshots for interface changes. Describe any API, schema, or behavior changes.

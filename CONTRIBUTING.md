@@ -1,46 +1,30 @@
-## Contributing
+# Contributing
 
-We welcome contributions of all kinds to improve this project! Here's how you can get involved:
+Contributions to Plasma Flux Explorer are welcome. For substantial changes, open an issue to discuss the scope before starting work. For small fixes, a pull request with context is sufficient.
 
-1. **Fork the Repository**: Start by forking the repository to your GitHub account.
+## Development setup
 
-2. **Clone Your Fork**: Clone the forked repository to your local machine:
+Install Node.js 20.9 or newer, pnpm 10 or newer, Python 3.11 or newer, and uv. Then install dependencies and start the local app:
 
-   ```bash
-   git clone <repo_url>
-   cd repo_dir
-   ```
+```bash
+pnpm install
+uv sync
+pnpm dev
+```
 
-3. **Create a Branch**: Create a new branch for your feature or bug fix:
+Local data is optional for the application shell. To download the small official demo selection used by the explorer, run `pnpm data:bootstrap`; the downloaded files and generated catalog remain local and are not committed.
 
-   ```bash
-   git checkout -b feature-name
-   ```
+## Before opening a pull request
 
-4. **Make Changes**: Make your changes to the codebase. Be sure to follow existing code style and conventions.
+Run the checks relevant to your change:
 
-5. **Commit Changes**: Commit your changes with a clear and descriptive message:
+```bash
+pnpm test
+pnpm lint
+pnpm typecheck
+pnpm build
+```
 
-   ```bash
-   git commit -m "Add detailed description of the changes"
-   ```
+Describe the problem and the approach taken. Include screenshots for visible interface changes and explain any data schema, scientific method, or API contract changes. Keep source measurements, derived quantities, predictions, and synthetic teaching examples clearly distinguished. New data handling should preserve source attribution, units, time bases, and license terms.
 
-6. **Push Changes**: Push your changes to your fork:
-
-   ```bash
-   git push origin feature-name
-   ```
-
-7. **Submit a Pull Request**: Open a pull request from your branch to the main repository's branch. Include a detailed description of your changes and the problem they solve.
-
-8. **Review and Feedback**: Participate in the review process. Make any requested changes, and your contribution will be merged!
-
-### Guidelines
-
-- Ensure your code follows the existing style and conventions.
-- Include tests for any new functionality or bug fixes.
-- Write clear, concise commit messages and pull request descriptions.
-
-### Issues
-
-Feel free to report bugs or suggest enhancements by creating an issue. Be sure to include detailed information about the problem and, if possible, steps to reproduce it.
+Do not commit credentials, downloaded datasets, generated catalogs, or machine-specific files. See the [data source notes](docs/data-sources.md) and [security policy](.github/SECURITY.md) before sharing data or reporting a vulnerability.
