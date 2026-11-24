@@ -1,0 +1,43 @@
+{
+  "name": "plasma-flux-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scientific workstation for tokamak equilibrium exploration",
+  "packageManager": "pnpm@10.6.3",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev --webpack --port 3000",
+    "start": "next start --port 3000",
+    "data:bootstrap": "uv run --no-sync python scripts/bootstrap_data.py",
+    "data:validate": "uv run --no-sync python scripts/validate_data.py",
+    "data:publish": "node scripts/publish-catalog.mjs",
+    "test": "uv run --no-sync python -m unittest discover -s tests -v",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit && node --check public/app.js",
+    "build": "next build --webpack && python3 -m compileall -q scientific scripts",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare preview",
+    "cf:deploy": "opennextjs-cloudflare deploy"
+  },
+  "dependencies": {
+    "lucide-react": "^1.79.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.20.18",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.6",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.168.0"
+  }
+}

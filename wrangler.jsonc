@@ -1,0 +1,68 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "plasma-flux-explorer",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-24",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "plasma-flux-explorer",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "PFE_DATA",
+      "bucket_name": "plasma-flux-explorer-data",
+    },
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "plasma-flux-explorer-cache",
+    },
+  ],
+  "observability": { "enabled": true },
+  "env": {
+    "staging": {
+      "name": "plasma-flux-explorer-staging",
+      "services": [
+        {
+          "binding": "WORKER_SELF_REFERENCE",
+          "service": "plasma-flux-explorer-staging",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "binding": "PFE_DATA",
+          "bucket_name": "plasma-flux-explorer-staging-data",
+        },
+        {
+          "binding": "NEXT_INC_CACHE_R2_BUCKET",
+          "bucket_name": "plasma-flux-explorer-staging-cache",
+        },
+      ],
+    },
+    "production": {
+      "name": "plasma-flux-explorer-production",
+      "services": [
+        {
+          "binding": "WORKER_SELF_REFERENCE",
+          "service": "plasma-flux-explorer-production",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "binding": "PFE_DATA",
+          "bucket_name": "plasma-flux-explorer-production-data",
+        },
+        {
+          "binding": "NEXT_INC_CACHE_R2_BUCKET",
+          "bucket_name": "plasma-flux-explorer-production-cache",
+        },
+      ],
+    },
+  },
+}

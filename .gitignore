@@ -20,6 +20,8 @@ test/tmp/**
 build
 dist
 .next
+.open-next/
+.wrangler/
 target
 .out
 
@@ -74,3 +76,16 @@ yarn-error.log*
 venv
 
 PLAN.md
+
+# Plasma Flux Explorer local scientific artifacts
+data/raw/
+data/processed/catalog.json
+.venv/
+__pycache__/
+*.py[cod]
+
+.open-next
+
+.pnpm-store
+
+.wrangler
